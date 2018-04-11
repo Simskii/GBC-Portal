@@ -1,5 +1,5 @@
 {
-  "name": "GBC-Portal",
+  "name": "gbc-portal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,20 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "apollo-cache-inmemory": "^1.1.12",
+    "apollo-client": "^2.2.8",
+    "apollo-link": "^1.2.1",
+    "apollo-link-error": "^1.0.7",
+    "apollo-link-http": "^1.5.3",
+    "buefy": "^0.6.5",
+    "element-ui": "^2.3.3",
+    "font-awesome": "^4.7.0",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.8.0",
+    "unfetch": "^3.0.0",
     "vue": "^2.5.13",
+    "vue-apollo": "^3.0.0-beta.5",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
