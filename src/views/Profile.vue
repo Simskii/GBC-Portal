@@ -28,41 +28,43 @@
                 </section>
             </b-upload>
         </section>
-        <!-- <div class="columns is-multiline is-mobile">
+        <div class="columns is-multiline is-mobile">
             <div class="column is-one-third board-cover" v-for="i of 30" :key="i">
                 <a href="">
                     <img :src="`https://picsum.photos/400/300?image=${i}`" alt="">
                 </a>
             </div>
-             <draggable v-model="data">
+            <!-- <draggable v-model="data">
                 <transition-group>
-                    <div v-for="element in data" :key="element">
-                        {{element}}
+                    <div v-for="element in data" :key="element" class="column">
+                        <img draggable="false" :src="`https://picsum.photos/400/300?image=${element}`" alt="">
                     </div>
                 </transition-group>
-            </draggable>
-        </div> -->
+            </draggable> -->
+        </div>
         <!-- <grid-layout :layout="data" :col-num="3" :row-height="100" :is-draggable="true" :margin="[10, 10]" :use-css-transforms="true">
             <grid-item v-for="item in data" :x="item.x" :y="item.y" :w="item.w" :h="item.h" :i="item.i" :key="item.i">
                 <img :src="`https://picsum.photos/400/300?image=${item.i}`" alt="">
             </grid-item>
         </grid-layout> -->
-        <div class="columns">
-            <grid :draggable="true" :sortable="true" :items="data" :cellHeight="400" :cellWidth="500">
+        <!-- <div class="columns is-centered">
+            <grid :draggable="true" :sortable="true" :items="data" :cellHeight="400" :cellWidth="500" center="true" :gridWidth="1344">
                 <template slot="cell" scope="props">
                     <div class="board-cover">
                         <img draggable="false" :src="`https://picsum.photos/400/300?image=${props.item}`" alt="">
                     </div>
                 </template>
             </grid>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
-/* import { GridLayout, GridItem } from 'vue-grid-layout';
-import draggable from 'vuedraggable' */
+import draggable from 'vuedraggable'
 export default {
+    components: {
+        draggable,
+    },
     data() {
         return {
             data: Array.from(Array(30).keys())
@@ -81,8 +83,9 @@ section {
 
 .board-cover {
   transition: 0.5s all ease;
-  width: 400px;
   margin-bottom: 50px;
+  height: 300px;
+  width: 400px;
   &:hover {
     transform: translateY(-7px);
     cursor: pointer;
@@ -90,6 +93,8 @@ section {
   img {
     border-radius: 5px;
     box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 400px;
   }
 }
 .fade-enter-active,
